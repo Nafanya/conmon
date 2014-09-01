@@ -30,8 +30,9 @@ def index():
 @app.route('/select', methods=['GET', 'POST'])
 def select_contests():
     if request.method == 'GET':
-        c = get_contests()
-        return render_template('select.html', contests=c)
+        act = get_contests('actual-olympiads')
+        psd = get_contests('ended-olympiads')
+        return render_template('select.html', actual=act, passed=psd)
     else:
         form_data = request.form.getlist("contest")
         session['selected'] = form_data
@@ -41,6 +42,8 @@ def select_contests():
 @app.route('/monitor')
 def monitor():
     sel = '<p>No contests selected<p>'
-    if session['selected']:
+    if 'selected' in session:
         sel = create_table(session['selected'])
+    else:
+        return redirect(url_for('select_contests'))
     return render_template('monitor.html', selected=sel)

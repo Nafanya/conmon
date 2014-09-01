@@ -9,12 +9,12 @@ from bs4 import BeautifulSoup as BS
 
 ''' Get list of current contests '''
 
-def get_contests():
+def get_contests(contests_type):
     ret = []
     url = 'http://contest.stavpoisk.ru/olympiad/show-all'
     response = requests.get(url)
     soup = BS(response.text)
-    table_div = soup.find_all('div', id='actual-olympiads')[0].table.tbody
+    table_div = soup.find_all('div', id=contests_type)[0].table.tbody
     rows = table_div.find_all('tr', class_='')
     cnt = 1
     for row in rows:
@@ -34,6 +34,11 @@ def get_contests():
             ret.append(c)
     return ret
 
+def get_actual_contests():
+    return get_contests(0)
+
+def get_passed_contests():
+    return get_contests(1)
 
 TEMPLATE = '''<html>
     <head>

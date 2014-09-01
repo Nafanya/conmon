@@ -8,20 +8,40 @@
     </div>
     <div class="page-body">
         <form action="" method="post">
-            <table class="table table-striped table-bordered table-hover">
-                <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Select</th>
-                </tr>
-                {% for contest in contests %}
+            <div class="actual-contests">
+                <p>Running contests</p>
+                <table class="table table-striped table-bordered table-hover">
                     <tr>
-                        <td>{{ contest['date'] }}</td>
-                        <td><a href="{{ contest['href'] }}">{{ contest['name'] }}</a></td>
-                        <td><input type="checkbox" name="contest" value="{{ contest['id'] }}"></td>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Select</th>
                     </tr>
-                {% endfor %}
-            </table>
+                    {% for contest in actual %}
+                        <tr>
+                            <td>{{ contest['date'] }}</td>
+                            <td><a href="{{ contest['href'] }}">{{ contest['name'] }}</a></td>
+                            <td><input type="checkbox" name="contest" value="{{ contest['id'] }}"></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="passed-contests">
+                <p>Passed contests</p>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Select</th>
+                    </tr>
+                    {% for contest in passed %}
+                        <tr>
+                            <td>{{ contest['date'] }}</td>
+                            <td><a href="{{ contest['href'] }}">{{ contest['name'] }}</a></td>
+                            <td><input type="checkbox" name="contest" value="{{ contest['id'] }}"></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
             <input type="submit" value="Select" class="btn btn-primary btn-lg btn-block">
         </form>
     </div>
