@@ -7,6 +7,7 @@ import re
 import json
 from bs4 import BeautifulSoup as BS
 
+
 ''' Get list of current contests '''
 
 def get_contests(contests_type):
@@ -45,21 +46,22 @@ TEMPLATE = '''<html>
         <meta charset="utf-8">
     </head>
     <body>
+        <div class="table-responsive">
             <table class="table table-condensed table-bordered table-hover table-striped" id="table-monitor">
-            <thead>
-                <tr id="head-row"> 
-                    <td id="position" rowspan="2">№</td>
-                    <td id="contestant" rowspan="2">Участник</td>
-                    <td id="solved" rowspan="2">=</td>
-                    <td id="se" rowspan="2">SE</td>
-                </tr>
-                <tr id="task-row">
-                </tr>
-            </thead>
-            
-            <tbody>
-            </tbody>
-        </table>
+                <thead>
+                    <tr id="head-row"> 
+                        <td id="position" rowspan="2">№</td>
+                        <td id="contestant" rowspan="2">Участник</td>
+                        <td id="solved" rowspan="2">=</td>
+                        <td id="se" rowspan="2">SE</td>
+                    </tr>
+                    <tr id="task-row">
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
 '''
