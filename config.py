@@ -1,3 +1,3 @@
 DEBUG = True
 CSRF_ENABLED = True
-SECRET_KEY = 'you-will-never-guess-abrakadabra'
+SECRET_KEY = '508c8cb7f57942a5b2f6ace9e604ee60'
