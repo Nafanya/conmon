@@ -49,7 +49,7 @@ TEMPLATE = '''<html>
         <div class="table-responsive">
             <table class="table table-condensed table-bordered table-hover table-striped" id="table-monitor">
                 <thead>
-                    <tr id="head-row"> 
+                    <tr id="head-row">
                         <td id="position" rowspan="2">№</td>
                         <td id="contestant" rowspan="2">Участник</td>
                         <td id="solved" rowspan="2">=</td>
@@ -132,9 +132,9 @@ def create_table(c_ids):
             contestant['solved'] = int(get_first(row, 'td', 'solved').string)
             contestant['time'] = int(get_first(row, 'td', 'time').string)
             contestant['tasks'] = list()
-            
+
             tasks = row.find_all('td', class_='task')[:cur_contest['problems']]
-            
+
             cnt = 0
             for task in tasks:
                 cur_task = dict()
@@ -276,18 +276,18 @@ def create_table(c_ids):
                                 tmp['class'] = color
                             tmp.string = text
                             cur_row.append(tmp)
-                            
+
 
         #with open(OUTPUT + table_name, 'w') as f:
         #    f.write(out.prettify().encode('utf-8'))
         return out.html.body.table.prettify()
 
-    
+
     contests.clear()
     names_set.clear()
     total.clear()
     for id in c_ids:
-        # seems to fail only if monitor is empty (in 
+        # seems to fail only if monitor is empty (in
         try:
             parse_contest(id)
         except:
