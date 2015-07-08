@@ -3,12 +3,21 @@
 {% block title %}Conmon{% endblock %}
 
 {% block page_content %}
-    <div class="page-header">
-        <h1>Menu</h1>
-    </div>
-    <div class="page-body">
-        <p><a href="/select">Create new monitor</a></p>
-        <p><a href="/monitor">Your monitor</a></p>
-    </div>
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-md-6">
+				<h1>Параллель C</h1>
+				<a href="/stand/c" class="btn btn-info btn-lg btn-block">Показать</a>
+			</div>
+			<div class="col-md-6">
+				<h1>Параллель C'</h1>
+				<a href="/stand/c'" class="btn btn-info btn-lg btn-block">Показать</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<p><a href="/select" class="btn btn-primary btn-lg">Создать новую сводную таблицу</a></p>
+		<p><a href="/monitor" class="btn btn-primary btn-lg">Показать последнюю сводную таблицу</a></p>
+	</div>
 {% endblock %}
 
